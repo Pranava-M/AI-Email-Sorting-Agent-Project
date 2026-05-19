@@ -366,7 +366,6 @@ This project is open source and free to use for personal projects.
 
 ---
 ## Screenshorts
-<img width="1119" height="700" alt="Screenshot 2026-05-19 102009" src="https://github.com/user-attachments/assets/bf9ceaf8-028b-42a1-b906-b1c39775950a" />
 <img width="1119" height="700" alt="Screenshot 2026-05-19 102009" src="https://github.com/user-attachments/assets/701b894f-00ab-448a-956e-ca8b694477b5" />
 <img width="1119" height="641" alt="1pic" src="https://github.com/user-attachments/assets/3e2c977f-1344-464a-b4b9-283373141150" />
 <img width="1119" height="638" alt="2pic" src="https://github.com/user-attachments/assets/bdb71a1e-165a-47ed-b152-16737b557256" />
