@@ -29,6 +29,7 @@ This AI agent reads your Gmail inbox and automatically labels emails into catego
 - 📱 Social Media (Instagram, Reddit, Twitter)
 - 📰 Newsletter (Quora, Medium)
 - 🤖 And more — unknown emails sorted by Gemini AI!
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/9baee44b-e01a-491f-a907-9d2948efedae" />
 
 ---
 
