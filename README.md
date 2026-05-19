@@ -363,3 +363,11 @@ The `.gitignore` file we created in Step 8 protects these automatically on GitHu
 ## 📄 License
 
 This project is open source and free to use for personal projects.
+
+---
+## Screenshorts
+<img width="1119" height="638" alt="Screenshot 2026-05-19 101433" src="https://github.com/user-attachments/assets/3cea12c8-4c3a-4557-b03d-78082c32bc6f" />
+<img width="1119" height="638" alt="Screenshot 2026-05-19 101455" src="https://github.com/user-attachments/assets/3641a379-bacf-4235-a818-5cbb4da4ec41" />
+<img width="1119" height="638" alt="Screenshot 2026-05-19 101455" src="https://github.com/user-attachments/assets/7c91a333-b15b-48da-8c55-098edc31ffdc" />
+<img width="670" height="487" alt="Screenshot 2026-05-19 102022" src="https://github.com/user-attachments/assets/3068d0a0-deca-4ee6-a70a-4d74e303ba72" />
+
