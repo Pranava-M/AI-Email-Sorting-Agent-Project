@@ -6,7 +6,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from google import genai
 
-# ─── Load API Key from .env ────────────────────────────────
+
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
@@ -19,13 +19,13 @@ client = genai.Client(api_key=GEMINI_API_KEY)
 
 SCOPES = ['https://www.googleapis.com/auth/gmail.modify']
 
-# ─── KNOWN SENDERS → Direct Category Mapping ──────────────
+
 KNOWN_SENDERS = {
 
-    # 💼 LinkedIn
+    
     "linkedin":                 "LinkedIn",
 
-    # 📱 Social Media
+    #  Social Media
     "instagram":                "Social Media",
     "facebook":                 "Social Media",
     "twitter":                  "Social Media",
@@ -38,7 +38,7 @@ KNOWN_SENDERS = {
     "telegram":                 "Social Media",
     "whatsapp":                 "Social Media",
 
-    # 🍔 Food & Delivery
+    #  Food & Delivery
     "zomato":                   "Food & Delivery",
     "swiggy":                   "Food & Delivery",
     "blinkit":                  "Food & Delivery",
@@ -46,7 +46,7 @@ KNOWN_SENDERS = {
     "zepto":                    "Food & Delivery",
     "magicpin":                 "Food & Delivery",
 
-    # 🛒 Shopping & Promotions
+    #  Shopping & Promotions
     "amazon":                   "Shopping & Promotions",
     "flipkart":                 "Shopping & Promotions",
     "myntra":                   "Shopping & Promotions",
@@ -58,7 +58,7 @@ KNOWN_SENDERS = {
     "bookbub":                  "Shopping & Promotions",
     "sweatcoin":                "Shopping & Promotions",
 
-    # 🏦 Bank & Finance
+    #  Bank & Finance
     "hdfcbank":                 "Bank & Finance",
     "icicibank":                "Bank & Finance",
     "sbiinbank":                "Bank & Finance",
@@ -77,7 +77,7 @@ KNOWN_SENDERS = {
     "welcomeemail":             "Bank & Finance",
     "cams":                     "Bank & Finance",
 
-    # 🎓 College & Education
+    #  College & Education
     "amrita":                   "College & University",
     "amritaedu":                "College & University",
     "university":               "College & University",
@@ -93,7 +93,7 @@ KNOWN_SENDERS = {
     "codechef":                 "College & University",
     "codeforces":               "College & University",
 
-    # 💼 Jobs & Offers
+    #  Jobs & Offers
     "naukri":                   "Offer Letter / Job",
     "indeed":                   "Offer Letter / Job",
     "glassdoor":                "Offer Letter / Job",
@@ -109,7 +109,7 @@ KNOWN_SENDERS = {
     "jobalert":                 "Offer Letter / Job",
     "job-alert":                "Offer Letter / Job",
 
-    # 🎵 Music & Entertainment
+    #  Music & Entertainment
     "spotify":                  "Music & Entertainment",
     "jiosaavn":                 "Music & Entertainment",
     "gaana":                    "Music & Entertainment",
@@ -120,7 +120,7 @@ KNOWN_SENDERS = {
     "sonyliv":                  "Music & Entertainment",
     "zee5":                     "Music & Entertainment",
 
-    # 💻 Tech & Developer
+    #  Tech & Developer
     "github":                   "Tech & Developer",
     "gitlab":                   "Tech & Developer",
     "stackoverflow":            "Tech & Developer",
@@ -133,11 +133,11 @@ KNOWN_SENDERS = {
     "railway":                  "Tech & Developer",
     "postman":                  "Tech & Developer",
 
-    # 🔔 Google Services
+    #  Google Services
     "google":                   "Google Services",
     "googleplay":               "Google Services",
 
-    # 📝 Productivity & Tools
+    #  Productivity & Tools
     "grammarly":                "Productivity & Tools",
     "notion":                   "Productivity & Tools",
     "slack":                    "Productivity & Tools",
@@ -147,14 +147,14 @@ KNOWN_SENDERS = {
     "figma":                    "Productivity & Tools",
     "dropbox":                  "Productivity & Tools",
 
-    # 📰 Newsletters
+    #  Newsletters
     "quora":                    "Newsletter",
     "medium":                   "Newsletter",
     "substack":                 "Newsletter",
 
 }
 
-# ─── AI Categories (fallback) ──────────────────────────────
+
 AI_CATEGORIES = [
     "LinkedIn",
     "College & University",
@@ -174,7 +174,7 @@ AI_CATEGORIES = [
 ]
 
 
-# ─── Connect to Gmail ──────────────────────────────────────
+
 def get_gmail_service():
     creds = None
 
@@ -195,7 +195,6 @@ def get_gmail_service():
     return service
 
 
-# ─── Fetch Emails ──────────────────────────────────────────
 def get_emails(service, max_emails=50):
     print(f"\n📬 Fetching last {max_emails} emails...")
 
@@ -239,7 +238,7 @@ def get_emails(service, max_emails=50):
     return emails
 
 
-# ─── Check Known Senders First ─────────────────────────────
+
 def check_known_sender(email):
     sender_lower  = email['sender'].lower()
     subject_lower = email['subject'].lower()
@@ -251,7 +250,6 @@ def check_known_sender(email):
     return None
 
 
-# ─── Classify with Gemini AI (fallback) ───────────────────
 def classify_with_ai(email):
     try:
         prompt = f"""You are an email classifier. Classify the following email into ONE of these categories:
@@ -283,7 +281,7 @@ Reply with ONLY the category name from the list above. Nothing else. No explanat
         return "Other"
 
 
-# ─── Create Gmail Label ────────────────────────────────────
+
 def get_or_create_label(service, label_name):
     try:
         labels_result   = service.users().labels().list(userId='me').execute()
@@ -307,7 +305,6 @@ def get_or_create_label(service, label_name):
         return None
 
 
-# ─── Apply Label to Email ──────────────────────────────────
 def apply_label_to_email(service, email_id, label_id):
     try:
         service.users().messages().modify(
@@ -319,7 +316,7 @@ def apply_label_to_email(service, email_id, label_id):
         print(f"  ⚠️ Could not apply label: {e}")
 
 
-# ─── MAIN ──────────────────────────────────────────────────
+
 def run_email_sorter():
     print("="*55)
     print("🤖  AI Email Sorter Agent Starting...")
