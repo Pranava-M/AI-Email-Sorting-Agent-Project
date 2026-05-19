@@ -366,8 +366,9 @@ This project is open source and free to use for personal projects.
 
 ---
 ## Screenshorts
-<img width="1119" height="638" alt="Screenshot 2026-05-19 101433" src="https://github.com/user-attachments/assets/3cea12c8-4c3a-4557-b03d-78082c32bc6f" />
-<img width="1119" height="638" alt="Screenshot 2026-05-19 101455" src="https://github.com/user-attachments/assets/3641a379-bacf-4235-a818-5cbb4da4ec41" />
-<img width="1119" height="638" alt="Screenshot 2026-05-19 101455" src="https://github.com/user-attachments/assets/7c91a333-b15b-48da-8c55-098edc31ffdc" />
-<img width="670" height="487" alt="Screenshot 2026-05-19 102022" src="https://github.com/user-attachments/assets/3068d0a0-deca-4ee6-a70a-4d74e303ba72" />
+<img width="1119" height="700" alt="Screenshot 2026-05-19 102009" src="https://github.com/user-attachments/assets/bf9ceaf8-028b-42a1-b906-b1c39775950a" />
+<img width="1119" height="700" alt="Screenshot 2026-05-19 102009" src="https://github.com/user-attachments/assets/701b894f-00ab-448a-956e-ca8b694477b5" />
+<img width="1119" height="641" alt="1pic" src="https://github.com/user-attachments/assets/3e2c977f-1344-464a-b4b9-283373141150" />
+<img width="1119" height="638" alt="2pic" src="https://github.com/user-attachments/assets/bdb71a1e-165a-47ed-b152-16737b557256" />
+<img width="1119" height="638" alt="3pic" src="https://github.com/user-attachments/assets/33abe13b-21b3-4fe1-a519-e6cbe524680a" />
 
