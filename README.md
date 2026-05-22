@@ -369,8 +369,6 @@ The `.gitignore` file we created in Step 8 protects these automatically on GitHu
 
 ---
 
-## 📄 License
 
-This project is open source and free to use for personal projects.
 
 
