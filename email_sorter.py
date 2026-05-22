@@ -22,7 +22,7 @@ SCOPES = ['https://www.googleapis.com/auth/gmail.modify']
 
 KNOWN_SENDERS = {
 
-    
+    # Linkedin
     "linkedin":                 "LinkedIn",
 
     #  Social Media
