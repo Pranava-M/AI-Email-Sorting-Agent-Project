@@ -207,7 +207,7 @@ def get_emails(service, max_emails=50):
     messages = results.get('messages', [])
 
     if not messages:
-        print("❌ No emails found in inbox!")
+        print(" No emails found in inbox!")
         return []
 
     emails = []
@@ -277,7 +277,7 @@ Reply with ONLY the category name from the list above. Nothing else. No explanat
         return "Other"
 
     except Exception as e:
-        print(f"  ⚠️ AI error: {e}")
+        print(f"   AI error: {e}")
         return "Other"
 
 
@@ -297,11 +297,11 @@ def get_or_create_label(service, label_name):
             'messageListVisibility': 'show'
         }
         created = service.users().labels().create(userId='me', body=label_body).execute()
-        print(f"  📁 Created new label: {label_name}")
+        print(f"   Created new label: {label_name}")
         return created['id']
 
     except Exception as e:
-        print(f"  ⚠️ Label error: {e}")
+        print(f"   Label error: {e}")
         return None
 
 
@@ -313,13 +313,13 @@ def apply_label_to_email(service, email_id, label_id):
             body={'addLabelIds': [label_id]}
         ).execute()
     except Exception as e:
-        print(f"  ⚠️ Could not apply label: {e}")
+        print(f"   Could not apply label: {e}")
 
 
 
 def run_email_sorter():
     print("="*55)
-    print("🤖  AI Email Sorter Agent Starting...")
+    print("  AI Email Sorter Agent Starting...")
     print("="*55)
 
     service = get_gmail_service()
@@ -329,7 +329,7 @@ def run_email_sorter():
         print("No emails to sort. Exiting.")
         return
 
-    print(f"\n🧠 Sorting {len(emails)} emails...\n")
+    print(f"\n Sorting {len(emails)} emails...\n")
 
     results     = {}
     ai_count    = 0
@@ -342,11 +342,11 @@ def run_email_sorter():
         category = check_known_sender(email)
 
         if category:
-            method = "⚡ Known"
+            method = " Known"
             known_count += 1
         else:
             category = classify_with_ai(email)
-            method = "🤖 AI"
+            method = " AI"
             ai_count += 1
 
         label_name = f"AI-Sorted/{category}"
@@ -354,24 +354,24 @@ def run_email_sorter():
 
         if label_id:
             apply_label_to_email(service, email['id'], label_id)
-            print(f"         {method} → ✅ {category}")
+            print(f"         {method} →  {category}")
         else:
-            print(f"         ❌ Could not sort")
+            print(f"          Could not sort")
 
         results[category] = results.get(category, 0) + 1
         print()
 
     print("="*55)
-    print("📊  SORTING COMPLETE! Summary:")
+    print("  SORTING COMPLETE! Summary:")
     print("="*55)
     for category, count in sorted(results.items(), key=lambda x: -x[1]):
-        print(f"  📁  {category:<30} {count} email(s)")
+        print(f"    {category:<30} {count} email(s)")
     print("-"*55)
-    print(f"  ⚡ Sorted by known senders : {known_count}")
-    print(f"  🤖 Sorted by Gemini AI     : {ai_count}")
-    print(f"  📧 Total emails sorted     : {len(emails)}")
+    print(f"   Sorted by known senders : {known_count}")
+    print(f"   Sorted by Gemini AI     : {ai_count}")
+    print(f"   Total emails sorted     : {len(emails)}")
     print("="*55)
-    print("\n✅ Open Gmail → look for 'AI-Sorted' in left sidebar")
+    print("\n Open Gmail → look for 'AI-Sorted' in left sidebar")
     print("   (Click 'More' in Gmail sidebar if you don't see it)\n")
 
 
