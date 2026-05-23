@@ -367,9 +367,9 @@ def run_email_sorter():
     for category, count in sorted(results.items(), key=lambda x: -x[1]):
         print(f"    {category:<30} {count} email(s)")
     print("-"*55)
-    print(f"   Sorted by known senders : {known_count}")
-    print(f"   Sorted by Gemini AI     : {ai_count}")
-    print(f"   Total emails sorted     : {len(emails)}")
+    print(f" Sorted by known senders : {known_count}")
+    print(f" Sorted by Gemini AI     : {ai_count}")
+    print(f" Total emails sorted     : {len(emails)}")
     print("="*55)
     print("\n Open Gmail → look for 'AI-Sorted' in left sidebar")
     print("   (Click 'More' in Gmail sidebar if you don't see it)\n")
