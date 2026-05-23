@@ -11,7 +11,7 @@ load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 if not GEMINI_API_KEY:
-    print("❌ ERROR: GEMINI_API_KEY not found in .env file!")
+    print(" ERROR: GEMINI_API_KEY not found in .env file!")
     print("   Create a .env file and add: GEMINI_API_KEY=your-key-here")
     exit()
 
@@ -191,12 +191,12 @@ def get_gmail_service():
             token.write(creds.to_json())
 
     service = build('gmail', 'v1', credentials=creds)
-    print("✅ Connected to Gmail!")
+    print(" Connected to Gmail!")
     return service
 
 
 def get_emails(service, max_emails=50):
-    print(f"\n📬 Fetching last {max_emails} emails...")
+    print(f"\n Fetching last {max_emails} emails...")
 
     results = service.users().messages().list(
         userId='me',
@@ -231,10 +231,10 @@ def get_emails(service, max_emails=50):
                 'snippet': snippet
             })
         except Exception as e:
-            print(f"  ⚠️ Skipped one email: {e}")
+            print(f"   Skipped one email: {e}")
             continue
 
-    print(f"✅ Fetched {len(emails)} emails.")
+    print(f" Fetched {len(emails)} emails.")
     return emails
 
 
